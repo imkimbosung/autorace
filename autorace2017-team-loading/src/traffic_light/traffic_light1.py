@@ -11,7 +11,8 @@ import math
 from self_driving_turtlebot3.msg import Traffic_light
 
 
-traffic_light_cascade = cv2.CascadeClassifier('cascade.xml')
+#traffic_light_cascade = cv2.CascadeClassifier('cascade.xml')
+#cascade.xml
 
 # Red
 R_lowH = 0
@@ -50,6 +51,7 @@ O_higher_hsv = np.array([O_highH, O_highS, O_highV])
 class Traffic_light_detection():
     def __init__(self):
         self._cv_bridge = CvBridge()
+        print('Traffic_light1 init')
         self._sub = rospy.Subscriber('/usb_cam/image_raw/compressed', CompressedImage, self.callback, queue_size=1)
         #self._sub = rospy.Subscriber('image_calibrated_compressed', CompressedImage, self.callback, queue_size=1)
         #self._pub = rospy.Publisher('/traffic_light', String, queue_size=1)

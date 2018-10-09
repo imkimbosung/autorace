@@ -16,12 +16,12 @@
   <node name="core" pkg="self_driving_turtlebot3" type="core.py">
   </node>
 
-  <node name="lane_follower" pkg="self_driving_turtlebot3" type="lane_follower_AI.py">
+  <node name="lane_follower" pkg="self_driving_turtlebot3" type="lane_follower.py">
   </node>
 
-  <node name="parking" pkg="self_driving_turtlebot3" type="parking.py">
-  </node>
-  <node name="maze3" pkg="self_driving_turtlebot3" type="maze3.py">
-  </node>
+ <!--  <node name="parking" pkg="self_driving_turtlebot3" type="parking.py">
+  </node> -->
+ <!--  <node name="maze3" pkg="self_driving_turtlebot3" type="maze3.py">
+  </node> -->
 
 </launch>

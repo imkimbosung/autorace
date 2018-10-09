@@ -71,6 +71,7 @@ def test_distance_equality(point1, point2, point3, point4):
 class Traffic_light_detection():
     def __init__(self):
         self._cv_bridge = CvBridge()
+        print('Traffic init')
 
         self.selecting_sub_image = "raw" # you can choose image type "compressed", "raw"
         # subscribers
@@ -97,35 +98,38 @@ class Traffic_light_detection():
         self.state = "run"
 
     def callback(self, image_msg):
+        print('traffic_light callback')
         if self.state == "end":
-            returnr
+           print('Traffic_callback prat')
+        return
 
 
         if self.mode == 'tuning':
-            cv2.namedWindow('ColorFilter')
+           print('Traffic_calssback part2')
+           cv2.namedWindow('ColorFilter')
 
-            ilowH, ihighH, ilowS, ihighS, ilowV, ihighV = self.filter_tuning
+           ilowH, ihighH, ilowS, ihighS, ilowV, ihighV = self.filter_tuning
 
             # create trackbars for color change
-            cv2.createTrackbar('lowH','ColorFilter',ilowH,255,callback)
-            cv2.createTrackbar('highH','ColorFilter',ihighH,255,callback)
+           cv2.createTrackbar('lowH','ColorFilter',ilowH,255,callback)
+           cv2.createTrackbar('highH','ColorFilter',ihighH,255,callback)
 
-            cv2.createTrackbar('lowS','ColorFilter',ilowS,255,callback)
-            cv2.createTrackbar('highS','ColorFilter',ihighS,255,callback)
+           cv2.createTrackbar('lowS','ColorFilter',ilowS,255,callback)
+           cv2.createTrackbar('highS','ColorFilter',ihighS,255,callback)
 
-            cv2.createTrackbar('lowV','ColorFilter',ilowV,255,callback)
+           cv2.createTrackbar('lowV','ColorFilter',ilowV,255,callback)
             #cv2.createTrackbar('highV','image',ihighV,255,callback)
 
 
             # get trackbar positions
-            ilowH = cv2.getTrackbarPos('lowH', 'ColorFilter')
-            ihighH = cv2.getTrackbarPos('highH', 'ColorFilter')
-            ilowS = cv2.getTrackbarPos('lowS', 'ColorFilter')
-            ihighS = cv2.getTrackbarPos('highS', 'ColorFilter')
-            ilowV = cv2.getTrackbarPos('lowV', 'ColorFilter')
+           ilowH = cv2.getTrackbarPos('lowH', 'ColorFilter')
+           ihighH = cv2.getTrackbarPos('highH', 'ColorFilter')
+           ilowS = cv2.getTrackbarPos('lowS', 'ColorFilter')
+           ihighS = cv2.getTrackbarPos('highS', 'ColorFilter')
+           ilowV = cv2.getTrackbarPos('lowV', 'ColorFilter')
             #ihighV = cv2.getTrackbarPos('highV', 'ColorFilter')
 
-            self.filter_tuning = ilowH, ihighH, ilowS, ihighS, ilowV, ihighV
+           self.filter_tuning = ilowH, ihighH, ilowS, ihighS, ilowV, ihighV
 
         else:
             ilowH, ihighH, ilowS, ihighS, ilowV, ihighV = self.filter_color[self.detecting_color]

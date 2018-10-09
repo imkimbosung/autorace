@@ -10,6 +10,9 @@
   <node name="lane_follower" pkg="self_driving_turtlebot3" type="lane_follower.py">
   </node>
 
+  <node name="traffic_light" pkg="self_driving_turtlebot3" type="traffic_light1.py">
+  </node>
+
 <!--  <node name="parking" pkg="self_driving_turtlebot3" type="parking.py">
   </node>
   <node name="maze3" pkg="self_driving_turtlebot3" type="maze3.py">

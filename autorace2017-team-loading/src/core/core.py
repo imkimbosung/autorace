@@ -34,7 +34,7 @@ def converting_to_tracer_mode():
 
 class Core():
     def __init__(self):
-
+        print('start Core')
         self.selecting_sub_image = "raw"  # you can choose image type "compressed", "raw"
         self.image_show = 'no' # no ,yes
 
@@ -62,8 +62,8 @@ class Core():
         self.state = 'go' # stop, go, slowdown : this is only used when lane_follower mode
         self.state_maze = 'outside' # inside, outside
 
-        self.traffic_light_color = 'green'
-        self.traffic_light_detected = 'no'
+        self.traffic_light_color = 'green' # init = green
+        self.traffic_light_detected = 'no' # init = no
         self.traffic_light_x = 0
         self.traffic_light_y = 0
 
@@ -146,6 +146,7 @@ class Core():
             self.state = 'fast'
         else:
             self.state = 'go'
+        print('core state == %d' % self.state)
         self._pub_1.publish(self.state)
 
     def receiver_stop_bar(self, stop_bar):
@@ -159,6 +160,7 @@ class Core():
         self.commander()
 
     def receiver_traffic_light(self, traffic_light):
+        print('start receiver_traffic_light')
         self.traffic_light_color = traffic_light.color
         self.traffic_light_x = traffic_light.position_x
         self.traffic_light_y = traffic_light.position_y

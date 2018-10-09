@@ -142,12 +142,10 @@ class ImageTransform():
             msg_homography.format = "jpeg"
             msg_homography.data = np.array(cv2.imencode('.jpg', cv_Homography)[1]).tostring()
             self._pub2.publish(msg_homography)
- 	    print('How do this?')
 
         # publishing calbrated and Bird's eye view as raw image
         elif self.selecting_pub_image == "raw":
             self._pub3.publish(self.bridge.cv2_to_imgmsg(cv_origin, "bgr8"))
-            print(' start pub4 ')
             self._pub4.publish(self.bridge.cv2_to_imgmsg(cv_Homography, "mono8"))
             
 
